@@ -1,0 +1,10 @@
+SixArm.com » Postfix » Main configuration file (main.cf)
+
+This is our Postfix main configuration file,
+which we put on servers in /etc/postfix/main.cf
+
+The file has some settings that are specific to our servers;
+to make it work on your own servers, you can customize these.
+
+We typically install postfix checks using our repo sixarm_postfix_checks
+ 
