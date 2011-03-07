@@ -1,4 +1,4 @@
-SixArm.com » Postfix » Main configuration file (main.cf)
+SixArm.com » Postfix » Main configuration file, main.cf
 
 This is our Postfix main configuration file,
 which we put on servers in /etc/postfix/main.cf
