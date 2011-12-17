@@ -258,6 +258,13 @@ myorigin = $mydomain
 #
 mydestination = localhost sixarm.com localhost.sixarm.com www.sixarm.com
 
+
+###                                                                                                                                                                                                                                                                              
+#                                                                                                                                                                                                                                                                                
+# Rejecting Mail For Unkown Local Users                                                                                                                                                                                                                                          
+#                                                                                                                                                                                                                                                                                
+###                                                                                                                                                                                                                                                                              
+
 # The local_recipient_maps parameter specifies optional lookup tables                                              
 # with all names or addresses of users that are local with respect                                                 
 # to $mydestination, $inet_interfaces or $proxy_interfaces.                                                        
@@ -308,7 +315,14 @@ mydestination = localhost sixarm.com localhost.sixarm.com www.sixarm.com
 # with 450 (try again later) until you are certain that your                                                       
 # local_recipient_maps settings are OK.                                                                            
 #                                                                                                                  
-#unknown_local_recipient_reject_code = 550
+unknown_local_recipient_reject_code = 550
+
+
+###                                                                                                                                                                                                                                                                              
+#                                                                                                                                                                                                                                                                                
+# Trust And Relay Control                                                                                                                                                                                                                                                        
+#                                                                                                                                                                                                                                                                                
+###  
 
 # The mynetworks parameter specifies the list of "trusted" SMTP                                                    
 # clients that have more privileges than "strangers".                                                              
@@ -370,6 +384,7 @@ mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 #
 #local_destination_concurrency_limit = 2                                                                           
 #default_destination_concurrency_limit = 20    
+
 
 ###
 #
@@ -486,26 +501,26 @@ mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
 #
 ###
 
-# ADDRESS REWRITING                                                                                                
+# Address Rewriting:                                                                                           
 #                                                                                                                  
 # The ADDRESS_REWRITING_README document gives information about                                                    
 # address masquerading or other forms of address rewriting including                                               
 # username->Firstname.Lastname mapping.                                                                            
 
-# ADDRESS REDIRECTION (VIRTUAL DOMAIN)                                                                             
+# Address Redirection (Virtual Domain):                                                                             
 #                                                                                                                  
 # The VIRTUAL_README document gives information about the many forms                                               
 # of domain hosting that Postfix supports.                                                                         
 
-# "USER HAS MOVED" BOUNCE MESSAGES                                                                                 
-#                                                                                                                  
+# "User Has Moved" Bounce Messages:
+#
 # See the discussion in the ADDRESS_REWRITING_README document.                                                     
 
-# TRANSPORT MAP                                                                                                    
+# Transport Map:
 #                                                                                                                  
 # See the discussion in the ADDRESS_REWRITING_README document.   
 
-# ALIAS DATABASE                                                                                                   
+# Alias Database:
 #                                                                                                                  
 # The alias_maps parameter specifies the list of alias databases used                                              
 # by the local delivery agent. The default list is system dependent.                                               
@@ -538,7 +553,7 @@ alias_maps = hash:/etc/aliases
 #alias_database = hash:/etc/aliases, hash:/opt/majordomo/aliases    
 alias_database = hash:/etc/aliases
 
-# ADDRESS EXTENSIONS (e.g., user+foo)                                                                              
+# Address Extensions (e.g., user+foo): 
 #                                                                                                                  
 # The recipient_delimiter parameter specifies the separator between                                                
 # user names and address extensions (user+foo). See canonical(5),                                                  
@@ -549,7 +564,7 @@ alias_database = hash:/etc/aliases
 #
 recipient_delimiter = +
 
-# DELIVERY TO MAILBOX                                                                                              
+# Delivery To Mailbox: 
 #                                                                                                                  
 # The home_mailbox parameter specifies the optional pathname of a                                                  
 # mailbox file relative to a user's home directory. The default                                                    
@@ -673,7 +688,12 @@ biff = no
 # attached message headers were treated as body text.                                                              
 #                                                                                                                  
 # For details, see "man header_checks".                                                                            
+#
 ###
+
+#header_checks = regexp:/etc/postfix/header_checks                                                                                                                                                                                                                               
+#mime_header_checks = regexp:/etc/postfix/mime_header_checks                                                                                                                                                                                                                               
+#body_checks = regexp:/etc/postfix/body_checks                                                                                                                                                                                                                               
 
 header_checks = regexp:/etc/postfix/sixarm_postfix_checks/header_checks.txt
 mime_header_checks = regexp:/etc/postfix/sixarm_postfix_checks/mime_header_checks.txt
