@@ -784,6 +784,25 @@ smtpd_sender_restrictions =
 # The final step is to see that the client has permission to send 
 # to the given recipient and to apply the remaining “expensive” tests 
 # to the messages that have made it this far.
+#
+# Realtime Black List (RBL):
+#
+#   reject_rbl_client truncate.gbudb.net,
+#   reject_rbl_client zen.spamhaus.org,
+#   reject_rbl_client dnsbl.proxybl.org,
+#   reject_rbl_client rbl.orbitrbl.com,
+#   reject_rbl_client intercept.datapacket.net,
+#   reject_rbl_client bl.spamcop.net,
+#   reject_rbl_client dnsbl.njabl.org,
+#   reject_rbl_client blackholes.easynet.nl,
+#   reject_rbl_client cbl.abuseat.org,
+#   reject_rbl_client opm.blitzed.org,
+#   reject_rbl_client dnsbl.njabl.or
+#
+# Realtime Black List (RBL) omitted:
+#
+#    reject_rbl_client dnsbl.sorbs.net,  # SORBS rejects mail from Google gmail
+
 smtpd_recipient_restrictions =
   reject_unauth_pipelining,
   reject_non_fqdn_recipient,
@@ -794,7 +813,6 @@ smtpd_recipient_restrictions =
   reject_rbl_client truncate.gbudb.net,
   reject_rbl_client zen.spamhaus.org,  
   reject_rbl_client dnsbl.proxybl.org,
-  reject_rbl_client dnsbl.sorbs.net,
   reject_rbl_client rbl.orbitrbl.com,
   reject_rbl_client intercept.datapacket.net,
   reject_rbl_client bl.spamcop.net,
