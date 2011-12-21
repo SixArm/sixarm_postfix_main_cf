@@ -787,21 +787,32 @@ smtpd_sender_restrictions =
 #
 # Realtime Black List (RBL):
 #
-#   reject_rbl_client truncate.gbudb.net,
+#   reject_rbl_client xbl.spamhaus.org,
 #   reject_rbl_client zen.spamhaus.org,
+#   reject_rbl_client b.barracudacentral.org,
+#   reject_rbl_client bl.spamcop.net,
+#   reject_rbl_client truncate.gbudb.net,
 #   reject_rbl_client dnsbl.proxybl.org,
 #   reject_rbl_client rbl.orbitrbl.com,
 #   reject_rbl_client intercept.datapacket.net,
-#   reject_rbl_client bl.spamcop.net,
 #   reject_rbl_client dnsbl.njabl.org,
 #   reject_rbl_client blackholes.easynet.nl,
 #   reject_rbl_client cbl.abuseat.org,
 #   reject_rbl_client opm.blitzed.org,
 #   reject_rbl_client dnsbl.njabl.or
 #
+# Recommended by OpenVZ:
+#
+#   reject_rbl_client xbl.spamhaus.org,
+#   reject_rbl_client zen.spamhaus.org,
+#   reject_rbl_client b.barracudacentral.org,
+#   reject_rbl_client bl.spamcop.net,
+#
 # Realtime Black List (RBL) omitted:
 #
-#    reject_rbl_client dnsbl.sorbs.net,  # SORBS rejects mail from Google gmail
+#   reject_rbl_client rbl.spamhaus.org,  # Doesn't seem to work - always sends error
+#   reject_rbl_client dnsbl.sorbs.net,  # SORBS rejects mail from Google gmail
+#   reject_rbl_client blackholes.five-ten-sg.com,  # Prone to listing subnets & not up to date
 
 smtpd_recipient_restrictions =
   reject_unauth_pipelining,
@@ -810,12 +821,14 @@ smtpd_recipient_restrictions =
   permit_mynetworks,
   permit_sasl_authenticated,
   reject_unauth_destination,
-  reject_rbl_client truncate.gbudb.net,
+  reject_rbl_client xbl.spamhaus.org,
   reject_rbl_client zen.spamhaus.org,  
+  reject_rbl_client b.barracudacentral.org,
+  reject_rbl_client bl.spamcop.net,
+  reject_rbl_client truncate.gbudb.net,
   reject_rbl_client dnsbl.proxybl.org,
   reject_rbl_client rbl.orbitrbl.com,
   reject_rbl_client intercept.datapacket.net,
-  reject_rbl_client bl.spamcop.net,
   reject_rbl_client dnsbl.njabl.org,
   reject_rbl_client blackholes.easynet.nl,
   reject_rbl_client cbl.abuseat.org,
