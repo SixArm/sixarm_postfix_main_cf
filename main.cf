@@ -605,7 +605,7 @@ home_mailbox = Maildir/
 # IF YOU USE THIS TO DELIVER MAIL SYSTEM-WIDE, YOU MUST SET UP AN                                                  
 # ALIAS THAT FORWARDS MAIL FOR ROOT TO A REAL USER.                                                                
 #                                                                                                                  
-#mailbox_command = /usr/bin/procmail                                                                               
+mailbox_command = /usr/bin/procmail                                                                               
 #mailbox_command = /usr/bin/procmail -a "$EXTENSION"     
 
 # The mailbox_transport specifies the optional transport in master.cf                                              
